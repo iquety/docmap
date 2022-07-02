@@ -10,9 +10,9 @@ class EnUs extends AbstractLang
     {
         return [
             'back_to_index' => 'Back to index',
-            'readme' => 'Readme',
-            'summary' => 'Contents',
+            'back_to_readme' => 'Back to readme',
             'summary_file' => 'index.md',
+            'readme_file' => 'readme.md'
         ];
     }
 }

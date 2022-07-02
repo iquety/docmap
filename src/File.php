@@ -25,11 +25,6 @@ class File
         $this->info = new Path($filePath);
     }
 
-    public function getFileInfo(): Path
-    {
-        return $this->info;
-    }
-
     public function analyse(): void
     {
         $contextPath = $this->getFileInfo()->getDirectory();
@@ -46,6 +41,15 @@ class File
         }
     }
 
+    private function checkSummary(string $row): void
+    {
+        $row = trim($row);
+
+        if (strpos($row, '--summary--') !== false) {
+            $this->hasSummary = true;
+        }
+    }
+
     private function extractTitle(string $row): void
     {
         $row = trim($row);
@@ -59,19 +63,15 @@ class File
         }
     }
 
-    private function checkSummary(string $row): void
-    {
-        $row = trim($row);
-
-        if (strpos($row, '{{ summary }}') !== false) {
-            $this->hasSummary = true;
-        }
-    }
-
     /** @return array<int,string> */
     public function getContents(): array
     {
         return $this->contents;
+    }
+
+    public function getFileInfo(): Path
+    {
+        return $this->info;
     }
 
     public function getTitle(): string
@@ -84,6 +84,12 @@ class File
         return $this->targetFile;
     }
 
+    public function isReadme(string $readmeFileName): bool
+    {
+        $fileName = $this->getFileInfo()->getFile();
+        return $fileName === $readmeFileName;
+    }
+
     public function isSummary(string $summaryFileName): bool
     {
         if ($this->hasSummary === false) {
@@ -93,7 +99,7 @@ class File
         $fileName = $this->getFileInfo()->getFile();
         return $fileName === $summaryFileName;
     }
-
+    
     public function setTargetFile(string $filePath): void
     {
         $this->targetFile = $filePath;

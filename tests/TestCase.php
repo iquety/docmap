@@ -5,24 +5,22 @@ declare(strict_types=1);
 namespace Tests;
 
 use Closure;
-use Freep\Console\Terminal;
 use Freep\Console\PhpUnit\ConsoleTestCase;
+use Freep\DocsMapper\i18n\EnUs;
+use Freep\DocsMapper\Parser;
 
 class TestCase extends ConsoleTestCase
 {
-    protected function gotcha(object $terminal, Closure $callback): string
+    protected function parserFactory(?Closure $callback = null): Parser
     {
-        ob_start();
-        $callback($terminal);
-        return (string)ob_get_clean();
-    }
+        $instance = new Parser(new EnUs(), __DIR__ . '/docs-dist');
+        $instance->addDirectory(__DIR__ . '/docs-src/en', 'test');
+        $instance->addFile(__DIR__ . '/docs-src/pt-br/outro.md', 'test/deep/other.md');
+        if ($callback !== null) {
+            $callback($instance);
+        } 
+        $instance->analyse();
 
-    protected function terminalFactory(): Terminal
-    {
-        $terminal = new Terminal(__DIR__ . "/FakeApp");
-        $terminal->setHowToUse("./example command [options] [arguments]");
-        $terminal->loadCommandsFrom(__DIR__ . "/FakeApp/ContextOne/src/Commands");
-        $terminal->loadCommandsFrom(__DIR__ . "/FakeApp/ContextTwo");
-        return $terminal;
+        return $instance;
     }
 }

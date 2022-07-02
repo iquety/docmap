@@ -10,9 +10,9 @@ class PtBr extends AbstractLang
     {
         return [
             'back_to_index' => 'Voltar para o índice',
-            'readme' => 'Leiame',
-            'summary' => 'Conteúdo',
+            'back_to_readme' => 'Voltar para o leiame',
             'summary_file' => 'indice.md',
+            'readme_file' => 'leiame.md'
         ];
     }
 }

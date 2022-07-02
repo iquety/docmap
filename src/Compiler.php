@@ -4,45 +4,19 @@ declare(strict_types=1);
 
 namespace Freep\DocsMapper;
 
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\i18n\Lang;
 use Freep\Security\Filesystem;
-use Freep\Security\Path;
-use InvalidArgumentException;
 
 class Compiler
 {
-    private string $destinationPath = '';
+    private string $readmePath = '';
 
-    private Lang $language;
-    
-    /** @var array<string,File> */
-    private array $fileList = [];
+    public function __construct(private Parser $parser)
+    {}
 
-    /** @var array<string,string> */
-    private array $summary = [];
-
-    private string $summaryFile = '';
-
-    public function __construct(Lang $language, string $destinationPath)
+    /** @return array<string,Link> */
+    public function getPageNavigation(string $filePath): array
     {
-        $this->destinationPath = $destinationPath;
-        $this->language = $language;
-    }
-
-    private function getFile(string $originPath): File
-    {
-        if ($originPath === '') {
-            return new File('');
-        }
-
-        return $this->fileList[$originPath];
-    }
-    
-    /** @return array<string,array<string,string>> */
-    public function getPageNavigation(string $filepath): array
-    {
-        $summary = array_keys($this->summary);
+        $summary = $this->getParser()->getSummaryItems();
 
         $previousPath = '';
 
@@ -51,64 +25,61 @@ class Compiler
                 ? ''
                 : $summary[$index + 1];
 
-            if ($path === $filepath) {
+            if ($path === $filePath) {
                 break;
             }
 
             $previousPath = $path;
         }
 
-        $indexPath = $this->summaryFile;
-
         return [
-            'previous' => $this->getFile($previousPath)->getTargetFile(),
-            'index'    => $this->getFile($indexPath)->getTargetFile(),
-            'next'     => $this->getFile($nextPath)->getTargetFile()
+            'previous' => $this->linkFactory($previousPath),
+            'index'    => $this->linkFactory($this->getParser()->getSummaryFile()),
+            'next'     => $this->linkFactory($nextPath, $filePath)
         ];
     }
 
-    /** @return array<string,string> */
-    public function getSummaryNavigation(): array
+    public function getParser(): Parser
     {
-        $summary = [];
-
-        foreach ($this->summary as $filePath => $title) {
-            $index = $this->getFile($filePath)->getTargetFile();
-            $summary[$index] = $title;
-        }
-
-        return $summary;
+        return $this->parser;
     }
 
-    public function make(): void
+    public function getReadmePath(): string
     {
-        $filesystem = new Filesystem($this->destinationPath);
+        return $this->readmePath;
+    }
 
-        foreach ($this->fileList as $filePath => $fileObject) {
-            $template = new Template($fileObject);
-            $template->setSummaryItems($this->summary);
-            $template->setPageNavigation($this->getPageNavigation($filePath));
+    /** @return array<int,Link> */
+    public function getSummaryLinks(): array
+    {
+        return array_map(
+            fn($path) => $this->linkFactory($path),
+            $this->parser->getSummaryItems()
+        );
+    }
+
+    private function linkFactory(string $linkPath): Link
+    {
+        return new Link($this->getParser(), $linkPath);
+    }
+
+    public function makeTo(string $destinationPath): void
+    {
+        $filesystem = new Filesystem($destinationPath);
+
+        foreach ($this->parser->getParsedFiles() as $fileObject) {
+            $template = new Template($this, $fileObject);
+
+            // $template->setPageNavigation($this->getPageNavigation($filePath));
+            // $template->setReadmePath($this->readmePath);
+            // $template->setSummaryItems($this->getSummaryNavigation());
             $filesystem->setFileContents($fileObject->getTargetFile(), $template->parse());
         }
     }
 
-    public function setFiles(array $fileList): self
+    public function setReadmePath(string $relativePath): self
     {
-        $this->fileList = $fileList;
-
-        return $this;
-    }
-
-    public function setSummaryItems(array $summary): self
-    {
-        $this->summary = $summary;
-
-        return $this;
-    }
-
-    public function setSummaryFile(string $filePath): self
-    {
-        $this->summaryFile = $filePath;
+        $this->readmePath = $relativePath;
 
         return $this;
     }

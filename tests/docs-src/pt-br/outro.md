@@ -1,16 +1,9 @@
-# Segundo título
+# Outro com sumário
 
 --page-nav--
 
-## 1. Subtítulo
+## Introdução
 
 Monomonomo nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono monomon mon 
 
-```php
-class SayHello extends Command
-{
-    // ...    
-}
-```
-
---page-nav--
+--summary--

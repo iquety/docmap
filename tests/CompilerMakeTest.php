@@ -6,22 +6,23 @@ namespace Tests;
 
 use Freep\DocsMapper\Compiler;
 use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\i18n\Lang;
 use Freep\DocsMapper\Parser;
 
 class CompilerMakeTest extends TestCase
 {
     private function compilerFactory(): Compiler
     {
-        $parser = new Parser(new EnUs(), __DIR__ . '/docs-dist');
-        $parser->addDirectory(__DIR__ . '/docs-src/en', 'test')
-            ->addFile(__DIR__ . '/docs-src/pt-br/indice.md', 'test/readme.md')
-            ->analyse();
+        $parser = $this->parserFactory(function($parser){
+            $parser->addFile(__DIR__ . '/docs-src/pt-br/indice.md', 'test/deep/indice.md');
+        });
 
-        $instance = new Compiler(new EnUs(), __DIR__ . '/docs-dist');
-        $instance->setFiles($parser->getParsedFiles())
-            ->setSummaryFile($parser->getSummaryFile())
-            ->setSummaryItems($parser->getSummaryItems());
+        $instance = new Compiler($parser);
+        $instance->setReadmePath('../../readme.md');
+
+        // $instance->setFiles($parser->getParsedFiles())
+        //     ->setReadmePath('../readme.md')
+        //     ->setSummaryFile($parser->getSummaryFile())
+        //     ->setSummaryItems($parser->getSummaryItems());
 
         return $instance;
     }
@@ -33,7 +34,7 @@ class CompilerMakeTest extends TestCase
     {
         $instance = $this->compilerFactory();
 
-        $instance->make();
+        $instance->makeTo(__DIR__ . '/docs-dist');
 
         $this->assertDirectoryExists(__DIR__ . '/docs-dist/test');
         $this->assertFileExists(__DIR__ . '/docs-dist/test/01-page-one.md');

@@ -9,11 +9,10 @@ use Freep\DocsMapper\i18n\Lang;
 use Freep\Security\Filesystem;
 use Freep\Security\Path;
 use InvalidArgumentException;
+use OutOfRangeException;
 
 class Parser
 {
-    private string $destinationPath = '';
-
     /** @var array<string,string> */
     private array $directoryList = [];
 
@@ -87,12 +86,34 @@ class Parser
 
         $this->parsedList[$filePath] = $file;
 
-        if ($file->isSummary($this->language->translate('summary_file')) === true) {
+        if ($file->isSummary($this->getLanguage()->translate('summary_file')) === true) {
             $this->summaryFile = $filePath;
             return;
         }
+
+        if ($file->isReadme($this->getLanguage()->translate('readme_file')) === true) {
+            return;
+        }
         
-        $this->summary[$filePath] = $file->getTitle();
+        $this->summary[] = $filePath;
+    }
+
+    public function getFile(string $sourcePath): File
+    {
+        if ($sourcePath === '') {
+            return new File('');
+        }
+
+        if (isset($this->parsedList[$sourcePath]) === false) {
+            throw new OutOfRangeException("The '$sourcePath' file does not exist in the analyzed analysis list");
+        }
+
+        return $this->parsedList[$sourcePath];
+    }
+
+    public function getLanguage(): Lang
+    {
+        return $this->language;
     }
 
     /** @return array<string,File> */
@@ -101,7 +122,7 @@ class Parser
         return $this->parsedList;
     }
 
-    /** @return array<string,string> */
+    /** @return array<int,string> */
     public function getSummaryItems(): array
     {
         return $this->summary;

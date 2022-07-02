@@ -4,29 +4,21 @@ declare(strict_types=1);
 
 namespace Freep\DocsMapper;
 
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\i18n\Lang;
-use Freep\Security\Filesystem;
-use Freep\Security\Path;
-use InvalidArgumentException;
-
 class Template
 {
-    private array $summary = [];
-
+    /** @var array<string,Link> */
     private array $navigation = [];
 
-    public function __construct(private File $file)
-    {}
-
-    public function setSummaryItems(array $summary): void
+    public function __construct(private Compiler $compiler, private File $file)
     {
-        $this->summary = $summary;
+        $filePath = $this->getFilePath();
+
+        $this->navigation = $this->compiler->getPageNavigation($filePath);
     }
 
-    public function setPageNavigation(array $structure): void
+    private function getFilePath(): string
     {
-        $this->navigation = $structure;
+        return $this->file->getFileInfo()->getPath();
     }
 
     public function parse(): string
@@ -36,33 +28,129 @@ class Template
         foreach($rowList as $number => $row) {
             $parseRow = trim($row);
 
-            if (strpos($parseRow, '{{ summary }}')) {
+            if (strpos($parseRow, '--summary--') !== false) {
                 $rowList[$number] = $this->generateSummary();
-                continue;
             }
 
-            if (strpos($parseRow, '{{ page_nav }}')) {
+            if (strpos($parseRow, '--summary-nav--') !== false) {
+                $rowList[$number] = $this->generateSummaryPageNavigation();
+            }
+
+            if (strpos($parseRow, '--page-nav--') !== false) {
                 $rowList[$number] = $this->generatePageNavigation();
             }
         }
         
-        return implode("\n", $rowList);
+        return implode("\n", $rowList) . "\n";
     }
 
     public function generatePageNavigation(): string
     {
-        return '';
+        $notation = [];
+
+        $filePath = $this->getFilePath();
+
+        $previous = $this->getLinkPrevious();
+        $index    = $this->getLinkIndex();
+        $next     = $this->getLinkNext();
+
+        $previousTitle = $previous->getTitle();
+        $indexTitle    = $index->getTitle();
+        $nextTitle     = $next->getTitle();
+
+        $previousLink = $previous->resolveTo($filePath);
+        $indexLink    = $index->resolveTo($filePath);
+        $nextLink     = $next->resolveTo($filePath);
+
+        if ($previousLink !== '') {
+            $notation[] = "[◂ " . $previousTitle . "](" . $previousLink . ")";
+        }
+
+        $indexPrefix = "";
+        $indexSufix = "";
+
+        if ($previousLink === '') {
+            $indexPrefix = "◂ ";
+        }
+
+        if ($nextLink === '') {
+            $indexSufix = " ▸";
+        }
+
+        $notation[] = "[" . $indexPrefix . $indexTitle . $indexSufix . "](" . $indexLink . ")";
+
+        if ($nextLink !== '') {
+            $notation[] = "[" . $nextTitle . " ▸](" . $nextLink . ")";
+        }
+
+        $table = array_fill(0, count($notation), '--');
+
+        return implode(' | ', $notation)
+            . "\n" 
+            . implode(' | ', $table);
+    }
+
+    public function generateSummaryPageNavigation(): string
+    {
+        $filePath = $this->getFilePath();
+
+        $summaryItems = $this->compiler->getSummaryLinks();
+
+        $nextLink = array_shift($summaryItems);
+
+        $notation = [];
+
+        if ($this->getReadmePath() !== '') {
+            $notation[] = "[◂ " . $this->getReadmeTitle() . "](" . $this->getReadmePath() . ")";
+        }
+        
+        $notation[] = "[" . $nextLink->getTitle() . " ▸](" . $nextLink->resolveTo($filePath) . ")";
+
+        $table = array_fill(0, count($notation), '--');
+
+        return implode(' | ', $notation)
+            . "\n" 
+            . implode(' | ', $table);
     }
     
     public function generateSummary(): string
     {
+        $filePath = $this->getFilePath();
+
+        $summaryItems = $this->compiler->getSummaryLinks();
+        
         $notation = [];
 
-        foreach($this->summary as $path => $title) {
-            $notation[] = "- [$title]($path)";
+        foreach($summaryItems as $link) {
+            $path = $link->resolveTo($filePath);
+            $notation[] = "- [" . $link->getTitle() . "](" . $path . ")";
         }
 
         return implode("\n", $notation);
     }
     
+    private function getLinkIndex(): Link
+    {
+        return $this->navigation['index'];
+    }
+
+    private function getLinkNext(): Link
+    {
+        return $this->navigation['next'];
+    }
+
+    private function getLinkPrevious(): Link
+    {
+        return $this->navigation['previous'];
+    }
+
+    public function getReadmePath(): string
+    {
+        return $this->compiler->getReadmePath();
+    }
+
+    public function getReadmeTitle(): string
+    {
+        return $this->compiler->getParser()->getLanguage()->translate('back_to_readme');
+    }
 }
