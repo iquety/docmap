@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# ./bin-link - Cria o link simbólico para simular o docmap no vendor
+#
+# Este programa cria um link simbólico para executar o docmap como se o pacote 
+# estivesse instalado pelo composer.
+#
+# ATENÇÃO: esse script é exclusivo para utilizar no diretório do projeto freep-docmap
+
+if [ -L "vendor/bin/docmap" ]; then
+    exit 0
+fi
+
+echo "Gerando link simbólico para o docmap"
+cd vendor/bin
+ln -s ../../docmap docmap
+cd - > /dev/null
+
+exit 0

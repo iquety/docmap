@@ -8,9 +8,9 @@ use Freep\Console\Arguments;
 use Freep\Console\Command;
 use Freep\Console\Option;
 use Freep\Docmap\Generator;
-use Freep\Security\Filesystem;
+use Freep\Docmap\i18n\EnUs;
+use Freep\Docmap\i18n\PtBr;
 use Freep\Security\Path;
-use RuntimeException;
 
 class Docmap extends Command
 {
@@ -26,6 +26,16 @@ class Docmap extends Command
                 '--dist',
                 'Provides the host available for connections',
                 Option::REQUIRED | Option::VALUED,
+                ''
+            )
+        );
+
+        $this->addOption(
+            new Option(
+                '-l',
+                '--lang',
+                'Provides the language to translate navigations',
+                Option::OPTIONAL | Option::VALUED,
                 ''
             )
         );
@@ -53,7 +63,13 @@ class Docmap extends Command
 
     protected function handle(Arguments $arguments): void
     {
-        $instance = new Generator();
+        $lang = new EnUs();
+
+        if($arguments->getOption('-l') === 'pt-br') {
+            $lang = new PtBr();
+        }
+
+        $instance = new Generator($lang);
 
         $readmeRelativePath = $arguments->getOption('-r');
 

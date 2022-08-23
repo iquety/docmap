@@ -1,20 +1,19 @@
-# Freep Console: Documentação
+# Documentation index
 
 [◂ Back to readme](../../readme.md) | [How to use ▸](01-how-to-use.md)
 -- | --
 
 ## Introduction
 
-Welcome to the Freep Console library documentation. Here you will find the necessary information to use the available features and make the most of the library.
+Welcome to the Freep Docmap tool documentation. Here you will find the necessary information to use the available features and make the most of the tool.
 
-### Contents
+## Contents
 
 - [How to use](01-how-to-use.md)
-- [Terminal script](02-terminal-script.md)
-- [Instantiating the Terminal](03-instantiating-the-terminal.md)
-- [Creating Commands](04-creating-commands.md)
-- [Implementing Options](05-implementing-options.md)
-- [Using the arguments](06-using-the-arguments.md)
-- [Message library](07-message-library.md)
-- [Testing Commands](08-testing-commands.md)
-- [Improving the library](99-improving-the-library.md)
+- [Languages](02-languages.md)
+- [Using replacement tags](03-tags-replacement.md)
+- [Creating navigation menus](04-tag-page-nav.md)
+- [Creating the summary](05-tag-summary.md)
+- [Creating the table of contents navigation](06-tag-summary-nav.md)
+- [Creating translations](07-creating-translations.md)
+- [Improving the Docmap](08-improving-the-docmap.md)

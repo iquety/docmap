@@ -1,15 +1,15 @@
-# How to use
+# Como usar
 
-[◂ Documentation index](index.md) | [Languages ▸](02-languages.md)
+[◂ Índice da documentação](indice.md) | [Idiomas ▸](02-idiomas.md)
 -- | --
 
-## The interpreter
+## O interpretador
 
 O Docmap é um interpretador, que analisa um projeto de documentação em markdown.
 
 No processo, são analisadas a estrutura de diretórios e o conteúdo dos arquivos em busca de informações que forneçam a forma como os menus deverão ser desenhados.
 
-## Installation
+## Intalação
 
 O Docmap é usado através da linha de comando. Para isso ser possível, é necessário instalar o pacote do composer conforme o exemplo abaixo:
 
@@ -17,7 +17,7 @@ O Docmap é usado através da linha de comando. Para isso ser possível, é nece
 composer require ricardopedias/freep-docmap
 ```
 
-## Execution
+## Execução
 
 Após a instalação, o script se encontrará em `vendor/bin/docmap`, de onde poderá ser utilizado em qualquer projeto PHP, invocando-o como no exemplo a seguir:
 
@@ -35,7 +35,7 @@ vendor/bin/docmap | A invocação do comando instalado no diretório vendor/bin 
 -r ../../readme.md | Especifica a localização do arquivo de "apresentação" do projeto
 -l pt-br | Determina o idioma para a tradução dos itens de menu. Atualmente, pode ser 'en' ou 'pt-br'
 
-## Automation
+## Automação
 
 A melhor maneira de usar o Docmap em um projeto é configurando os comandos necessários em uma rotina no arquivo **composer.json** para que possa ser executada sempre que uma atualização for efetuada na documentação.
 
@@ -80,5 +80,5 @@ Para refazer a documentação nos dois idiomas, basta invocar o composer fornece
 composer docmap
 ```
 
-[◂ Documentation index](index.md) | [Languages ▸](02-languages.md)
+[◂ Índice da documentação](indice.md) | [Idiomas ▸](02-idiomas.md)
 -- | --

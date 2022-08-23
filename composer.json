@@ -40,6 +40,12 @@
             "rm -Rf tests/docs-dist/*",
             "vendor/bin/phpunit --testdox"
         ],
+        "docmap" : [
+            "rm -Rf docs/pt-br/*",
+            "vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
+            "rm -Rf docs/en/*",
+            "vendor/bin/docmap -s assets/docs/en -d docs/en"
+        ],
         "coverage": "vendor/bin/phpunit --coverage-html coverage",
         "analyse": [
             "phpcbf --standard=PSR1,PSR12 src tests",

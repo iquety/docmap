@@ -5,3 +5,4 @@ super-linter.log
 coverage/
 vendor/
 tests/docs-dist
+assets/docs/imgs

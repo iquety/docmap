@@ -1,21 +1,19 @@
-# Freep Console: Documentação
+# Índice da documentação
 
-[◂ Voltar ao Leiame](leiame.md) | [Modo de Usar ▸](01-modo-de-usar.md)
+[◂ Voltar para o leiame](leiame.md) | [Como usar ▸](01-como-usar.md)
 -- | --
 
 ## Introdução
 
-Bem vindo(a) à documentação da biblioteca Freep Console. Aqui você encontra as informações
-necessárias para utilizar as funcionalidades disponíveis e usufruir ao máximo da biblioteca.
+Bem vindo(a) à documentação da ferramenta Freep Docmap. Aqui você encontra as informações necessárias para utilizar as funcionalidades disponíveis e usufruir ao máximo da ferramenta.
 
-### Conteúdo
+## Conteúdo
 
-- [Modo de Usar](01-modo-de-usar.md)
-- [Script de terminal](02-script-de-terminal.md)
-- [Instanciando o Terminal](03-instanciando-o-terminal.md)
-- [Criando Comandos](04-criando-comandos.md)
-- [Implementando Opções](05-implementando-opcoes.md)
-- [Usando os argumentos](06-usando-os-argumentos.md)
-- [Biblioteca de mensagens](07-biblioteca-de-mensagens.md)
-- [Testando Comandos](08-testando-comandos.md)
-- [Evoluindo a biblioteca](99-evoluindo-a-biblioteca.md)
+- [Como usar](01-como-usar.md)
+- [Idiomas](02-idiomas.md)
+- [Usando tags de substituição](03-tags-de-substituicao.md)
+- [Criando menus de navegação](04-tag-page-nav.md)
+- [Criando o sumário](05-tag-summary.md)
+- [Criando a navegação do sumário](06-tag-summary-nav.md)
+- [Criando traduções](07-criando-traducoes.md)
+- [Evoluindo o Docmap](08-evoluindo-o-docmap.md)

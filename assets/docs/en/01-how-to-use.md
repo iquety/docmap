@@ -1,7 +1,6 @@
 # How to use
 
-[◂ Documentation index](index.md) | [Languages ▸](02-languages.md)
--- | --
+--page-nav--
 
 ## The interpreter
 
@@ -59,18 +58,18 @@ No arquivo `composer.json`, pode-se criar uma rotina para remover a documentaç�
 // composer.json
 
 {
-"require": {
-"php": "^8.0.0",
-"ricardopedias/freep-docmap": "dev-main"
-},
-"scripts" : {
-"docmap" : [
-"rm -Rf docs/pt-br/*",
-"vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
-"rm -Rf docs/en/*",
-"vendor/bin/docmap -s assets/docs/en -d docs/en"
-]
-}
+    "require": {
+        "php": "^8.0.0",
+        "ricardopedias/freep-docmap": "dev-main"
+    },
+    "scripts" : {
+        "docmap" : [
+            "rm -Rf docs/pt-br/*",
+            "vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
+            "rm -Rf docs/en/*",
+            "vendor/bin/docmap -s assets/docs/en -d docs/en"
+        ]
+    }
 }
 ```
 
@@ -80,5 +79,4 @@ Para refazer a documentação nos dois idiomas, basta invocar o composer fornece
 composer docmap
 ```
 
-[◂ Documentation index](index.md) | [Languages ▸](02-languages.md)
--- | --
+--page-nav--
