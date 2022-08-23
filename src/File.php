@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\DocsMapper;
+namespace Freep\Docmap;
 
 use Freep\Security\Filesystem;
 use Freep\Security\Path;

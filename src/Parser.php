@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freep\DocsMapper;
+namespace Freep\Docmap;
 
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\i18n\Lang;
+use Freep\Docmap\i18n\EnUs;
+use Freep\Docmap\i18n\Lang;
 use Freep\Security\Filesystem;
 use Freep\Security\Path;
 use InvalidArgumentException;

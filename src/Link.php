@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\DocsMapper;
+namespace Freep\Docmap;
 
 use Freep\Security\Path;
 
@@ -13,10 +13,8 @@ class Link
 
     private function extractBaseName(string $path): string
     {
-        // TODO Corrigir isso na classe Path
-        // para devolver o getFile() mesmo se o path nao conter nós
-        if (substr_count($path, '/') === 0) {
-            return $path;
+        if ($path === ''){
+            return '';    
         }
 
         return (new Path($path))->getFile();
@@ -24,6 +22,10 @@ class Link
 
     private function extractTopDirectory(string $path, int $levels): string
     {
+        if ($levels < 1) {
+            return $path;
+        }
+
         $reverse = strrev($path);
         
         $removedLevels = (new Path($reverse))->getDirectory($levels);

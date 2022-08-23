@@ -6,8 +6,8 @@ namespace Tests;
 
 use Closure;
 use Freep\Console\PhpUnit\ConsoleTestCase;
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\Parser;
+use Freep\Docmap\i18n\EnUs;
+use Freep\Docmap\Parser;
 
 class TestCase extends ConsoleTestCase
 {

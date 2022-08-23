@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\DocsMapper\i18n\PtBr;
-use Freep\DocsMapper\Parser;
+use Freep\Docmap\i18n\PtBr;
+use Freep\Docmap\Parser;
 
 class ParserPtBrTest extends TestCase
 {

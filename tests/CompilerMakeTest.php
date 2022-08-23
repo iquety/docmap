@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\DocsMapper\Compiler;
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\Parser;
+use Freep\Docmap\Compiler;
+use Freep\Docmap\i18n\EnUs;
+use Freep\Docmap\Parser;
 
 class CompilerMakeTest extends TestCase
 {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\DocsMapper\i18n\EnUs;
-use Freep\DocsMapper\Link;
-use Freep\DocsMapper\Parser;
+use Freep\Docmap\i18n\EnUs;
+use Freep\Docmap\Link;
+use Freep\Docmap\Parser;
 use Freep\Security\Path;
 
 class LinkTest extends TestCase

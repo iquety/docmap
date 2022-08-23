@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\DocsMapper\File;
+use Freep\Docmap\File;
 use OutOfRangeException;
 
 class ParserFilesTest extends TestCase

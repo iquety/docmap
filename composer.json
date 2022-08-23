@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Freep\\DocsMapper\\": "src/"
+            "Freep\\Docmap\\": "src/"
         }
     },
     "autoload-dev": {
@@ -36,7 +36,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts" : {
-        "test": "vendor/bin/phpunit --testdox",
+        "test": [
+            "rm -Rf tests/docs-dist/*",
+            "vendor/bin/phpunit --testdox"
+        ],
         "coverage": "vendor/bin/phpunit --coverage-html coverage",
         "analyse": [
             "phpcbf --standard=PSR1,PSR12 src tests",

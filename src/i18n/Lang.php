@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\DocsMapper\i18n;
+namespace Freep\Docmap\i18n;
 
 interface Lang
 {

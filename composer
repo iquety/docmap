@@ -5,7 +5,7 @@
 # Este programa executa comandos do composer que está localizado dentro do conteiner
 # docker, dispensando a necessidade de instalar o composer no computador local
 
-PHP_CONTAINER='freep-docs-mapper'
+PHP_CONTAINER='freep-docmap'
 
 docker-compose up -d
 
@@ -17,6 +17,33 @@ if [ "$1" == "analyse" ]; then
         -e FILTER_REGEX_INCLUDE="/docs/.*" \
         -v "$(pwd)/docs/.lint.yml":"/action/lib/.automation/docs/.lint.yml" \
         -v "$(pwd)":"/tmp/lint" github/super-linter
+fi
+
+if [ "$1" == "docmap" ]; then
+    if [ ! -L "vendor/bin/docmap" ]; then
+        docker exec -it $PHP_CONTAINER \
+            cd vendor/bin; ln -s ../../docmap docmap
+    fi
+
+    docker exec -it $PHP_CONTAINER \
+        vendor/bin/docmap $@
+
+    exit 0
+fi
+
+if [ "$1" == "test:docmap" ]; then
+    docker exec -it $PHP_CONTAINER rm -Rf tests/docs-dist
+    docker exec -it $PHP_CONTAINER mkdir tests/docs-dist
+
+    if [ ! -L "vendor/bin/docmap" ]; then
+        docker exec -it $PHP_CONTAINER \
+            cd vendor/bin; ln -s ../../docmap docmap
+    fi
+
+    docker exec -it $PHP_CONTAINER \
+        vendor/bin/docmap -s tests/docs-src/en -d tests/docs-dist/test
+
+    exit 0
 fi
 
 if [ "$1" == "bash" ]; then

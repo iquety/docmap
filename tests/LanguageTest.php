@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\DocsMapper\i18n\PtBr;
+use Freep\Docmap\i18n\PtBr;
 
 class LanguageTest extends TestCase
 {

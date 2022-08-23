@@ -61,12 +61,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ricardopedias/freep-security.git",
-                "reference": "e3da0ca8277536a0873be1aff126cb17c777cfdf"
+                "reference": "fc24f6bbf987eaa834b334add1a12ace459791ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ricardopedias/freep-security/zipball/e3da0ca8277536a0873be1aff126cb17c777cfdf",
-                "reference": "e3da0ca8277536a0873be1aff126cb17c777cfdf",
+                "url": "https://api.github.com/repos/ricardopedias/freep-security/zipball/fc24f6bbf987eaa834b334add1a12ace459791ef",
+                "reference": "fc24f6bbf987eaa834b334add1a12ace459791ef",
                 "shasum": ""
             },
             "require": {
@@ -98,9 +98,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ricardopedias/freep-security/issues",
-                "source": "https://github.com/ricardopedias/freep-security/tree/main"
+                "source": "https://github.com/ricardopedias/freep-security/tree/v1.0.1"
             },
-            "time": "2022-06-28T22:31:25+00:00"
+            "time": "2022-07-02T00:54:55+00:00"
         }
     ],
     "packages-dev": [
