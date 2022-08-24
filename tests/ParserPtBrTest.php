@@ -11,7 +11,7 @@ class ParserPtBrTest extends TestCase
 {
     private function parserPtBrFactory(): Parser
     {
-        $instance = new Parser(new PtBr(), __DIR__ . '/docs-dist');
+        $instance = new Parser(new PtBr());
         $instance->addDirectory(__DIR__ . '/docs-src/pt-br', 'test');
         $instance->addFile(__DIR__ . '/docs-src/en/index.md', 'test/leiame.md');
         $instance->analyse();

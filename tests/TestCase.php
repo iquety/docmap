@@ -13,7 +13,7 @@ class TestCase extends ConsoleTestCase
 {
     protected function parserFactory(?Closure $callback = null): Parser
     {
-        $instance = new Parser(new EnUs(), __DIR__ . '/docs-dist');
+        $instance = new Parser(new EnUs());
         $instance->addDirectory(__DIR__ . '/docs-src/en', 'test');
         $instance->addFile(__DIR__ . '/docs-src/pt-br/outro.md', 'test/deep/other.md');
         if ($callback !== null) {

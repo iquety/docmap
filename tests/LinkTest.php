@@ -16,7 +16,7 @@ class LinkTest extends TestCase
         $link = new Path(__DIR__ . "/docs-src/en/01-page-one.md");
         $ref = new Path(__DIR__ . "/docs-src/en/02-page-two.md");
 
-        $parser = new Parser(new EnUs(), __DIR__ . '/docs-dist');
+        $parser = new Parser(new EnUs());
         $parser->addFile($link->getPath(), $targetLinkPath);
         $parser->addFile($ref->getPath(), $targetDocumentPath);
 

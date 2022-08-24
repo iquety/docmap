@@ -20,7 +20,7 @@ class Generator
     {
         $language = $language ?? new EnUs();
 
-        $this->parser = new Parser($language, __DIR__ . '/docs-dist');
+        $this->parser = new Parser($language);
     }
 
     public function addDirectory(string $sourceDirectory, string $targetDirectory = ''): self

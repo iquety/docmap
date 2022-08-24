@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Freep\Docmap;
 
-use Freep\Docmap\i18n\EnUs;
 use Freep\Docmap\i18n\Lang;
 use Freep\Security\Filesystem;
 use Freep\Security\Path;
-use InvalidArgumentException;
 use OutOfRangeException;
 
 class Parser
@@ -24,14 +22,13 @@ class Parser
     /** @var array<string,File> */
     private array $parsedList = [];
 
-    /** @var array<string,string> */
+    /** @var array<int,string> */
     private array $summary = [];
 
     private string $summaryFile = '';
 
-    public function __construct(Lang $language, string $destinationPath)
+    public function __construct(Lang $language)
     {
-        $this->destinationPath = $destinationPath;
         $this->language = $language;
     }
 
@@ -49,7 +46,6 @@ class Parser
         return $this;
     }
 
-    /** @return array<int,array<string,mixed>> */
     public function analyse(): void
     {
         foreach ($this->directoryList as $originPath => $targetPath) {
