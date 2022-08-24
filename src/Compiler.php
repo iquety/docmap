@@ -20,6 +20,7 @@ class Compiler
         $summary = $this->getParser()->getSummaryItems();
 
         $previousPath = '';
+        $nextPath = '';
 
         foreach ($summary as $index => $path) {
             $nextPath = isset($summary[$index + 1]) === false
@@ -36,7 +37,7 @@ class Compiler
         return [
             'previous' => $this->linkFactory($previousPath),
             'index'    => $this->linkFactory($this->getParser()->getSummaryFile()),
-            'next'     => $this->linkFactory($nextPath, $filePath)
+            'next'     => $this->linkFactory($nextPath)
         ];
     }
 

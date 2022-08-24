@@ -49,6 +49,7 @@ class LinkTest extends TestCase
         );
     }
 
+    /** @return array<string,array<int,string>> */
     public function linkListProvider(): array
     {
         $list = [];
@@ -94,8 +95,8 @@ class LinkTest extends TestCase
 
     /**
      * @test
-    * @dataProvider linkListProvider
-    */
+     * @dataProvider linkListProvider
+     */
     public function resolveTo(string $link, string $document, string $resolved): void
     {
         $link = $this->linkFactory($link, $document);
