@@ -5,13 +5,19 @@
 
 use Freep\Console\Terminal;
 
-if (is_file(__DIR__ . '/composer.json')) {
-    echo "\033[31m This script must be run from vendor/bin \033[0m\n";
+if ($argv[0] === './docmap') {
+    echo "\033[31m";
+    echo "------------------------------------------------------------------------ \n";
+    echo "This script should not be run directly in this way. \n";
+    echo "It was made to work after an installation via composer, from vendor/bin. \n";
+    echo "------------------------------------------------------------------------ \n";
+    echo "\033[0m\n";
     
     exit(0);
 }
 
-include __DIR__ . '/../autoload.php';
+// caminho do autoload com base no pacote instalado
+include __DIR__ . '/../../autoload.php';
 
 // O PHP em modo CLI disponibiliza a variável reservada "$argv", contendo a lista 
 // de palavras digitadas pelo usuário no Terminal. Esta variável será usada para
@@ -20,9 +26,9 @@ include __DIR__ . '/../autoload.php';
 // Remove o primeiro argumento, que contém o nome do script (ex: ./example)
 array_shift($argv);
 
-$terminal = new Terminal(__DIR__ . '/../../src');
+$terminal = new Terminal(__DIR__ . '/src');
 
-$terminal->loadCommandsFrom(__DIR__ . '/../../src/Commands');
+$terminal->loadCommandsFrom(__DIR__ . '/src/Commands');
 
 if (count($argv) === 0 || in_array($argv[0], ['--help', '-h']) === true) {
     $terminal->runCommand('help', $argv);
