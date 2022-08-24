@@ -1,5 +1,5 @@
 {
-    "name": "ricardopedias/freep-docs-mapper",
+    "name": "ricardopedias/freep-docmap",
     "type": "tool",
     "description": "Simple Markdown file interpreter, which adds a navigation menu on every page",
     "keywords": ["framework", "freep", "tool", "console"],
