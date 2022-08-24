@@ -3,15 +3,15 @@
 [◂ Creating the summary](05-tag-summary.md) | [Documentation index](index.md) | [Creating translations ▸](07-creating-translations.md)
 -- | -- | --
 
-Diferente do menu de navagação das páginas, o sumário possui um menu mais adequado, contendo um link para o arquivo "readme.md" do projeto.
+Unlike the page navigation menu, the table of contents has a more suitable menu, containing a link to the project's "readme.md" file.
 
-Para criar esse tipo especial de menu, basta usar a tag **summary-nav**.
+To create this special kind of menu, just use the **summary-nav** tag.
 
-Exemplo de documentação com a tag declarada:
+Documentation example with the declared tag:
 
 ![template com a tag summary](../imgs/summary-nav-template.png)
 
-Exemplo de documentação com a tag já processada:
+Example of documentation with the tag already processed:
 
 ![renderização da tag summary](../imgs/summary-nav.png)
 

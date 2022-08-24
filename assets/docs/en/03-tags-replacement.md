@@ -4,16 +4,16 @@
 
 ## Inserting tags for dynamic menus
 
-Como já explicado, o Docmap é um interpretador de arquivos markdown, que procura tags especiais para substituí-las por um conteúdo correspondente.
+As already explained, Docmap is a markdown file interpreter, which looks for special tags to replace them with corresponding content.
 
-Dentro de um arquivo markdown, basta colocar uma ou várias tags para que a ferramenta possa identificar e substituir.
+Inside a markdown file, just put one or several tags so that the tool can identify and replace.
 
-As tags são palavras minúsculas, que começam e terminam com dois tracinhos "--". A seguir, a lista de tags disponíveis:
+Tags are lowercase words that begin and end with two dashes "--". The following is the list of available tags:
 
-Tag | Descrição
+Tag | Description
 -- | --
-page-nav | Desenha um menu de navegação para avançar, voltar ou ir para o índice da documentação
-summary | Desenha um índice, contendo os links para todas as páginas da documentação
-summary-nav | Desenha um menu de navegação especial para a página que contém o índice. Diferente do "page-nav", esta navegação possui um link para o arquivo "readme.md" do projeto.
+page-nav | Draw a navigation menu to go forward, back or go to the documentation index
+summary | Draws an index, containing links to all documentation pages
+summary-nav | Draws a special navigation menu for the page containing the table of contents. Unlike "page-nav", this navigation has a link to the project's "readme.md" file.
 
 --page-nav--

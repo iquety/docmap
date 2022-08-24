@@ -2,13 +2,13 @@
 
 --page-nav--
 
-Para criar um ou mais menus de navegação em um arquivo markdown, basta usar a tag **page-nav**.
+To create one or more navigation menus in a markdown file, simply use the **page-nav** tag.
 
-Exemplo de documentação com a tag declarada:
+Documentation example with the declared tag:
 
 ![template com a tag page-nav](../imgs/page-nav-template.png)
 
-Exemplo de documentação com a tag já processada:
+Example of documentation with the tag already processed:
 
 ![renderização da tag page-nav](../imgs/page-nav.png)
 

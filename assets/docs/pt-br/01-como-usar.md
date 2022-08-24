@@ -73,7 +73,7 @@ No arquivo `composer.json`, pode-se criar uma rotina para remover a documentaç�
 }
 ```
 
-Para refazer a documentação nos dois idiomas, basta invocar o composer fornecendo o nome **docmap**:
+Após esta configuração, para refazer a documentação nos dois idiomas, basta invocar o composer fornecendo o nome **docmap**:
 
 ```shell
 composer docmap

@@ -4,7 +4,7 @@
 
 ## Choosing a language
 
-Atualmente, o Docmap suporta dois idiomas: Inglês e Português.
+Currently, Docmap supports two languages: English and Portuguese.
 
 ```bash
 # especificando o idioma pt-br
@@ -12,13 +12,13 @@ Atualmente, o Docmap suporta dois idiomas: Inglês e Português.
 $ vendor/bin/docmap -s src-docs -d docs -l pt-br
 ```
 
-Ao especificar um idioma, além da tradução dos menus de navegação, o nome do arquivo de índice também muda.
+When specifying a language, in addition to translating the navigation menus, the name of the index file also changes.
 
-Ou seja, se o idioma for setado para 'pt-br', a documentação deverá conter um arquivo chamado 'indice.md'.
+That is, if the language is set to 'pt-br', the documentation must contain a file called 'indice.md'.
 
-Se o idioma não for especificado, ou se for setado para 'en', a documentação deverá conter um arquivo chamado 'index.md'.
+If the language is not specified, or if it is set to 'en', the documentation must contain a file called 'index.md'.
 
-Idioma | Nome do arquivo de sumário
+Language | Summary file name
 -- | --
 en | index.md
 pt-br | indice.md
