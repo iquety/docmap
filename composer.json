@@ -26,7 +26,7 @@
         }
     },
     "bin": [
-        "assets/bin/docmap"
+        "docmap"
     ],
     "config": {
         "optimize-autoloader": true,

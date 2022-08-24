@@ -13,6 +13,6 @@ fi
 
 echo "Gerando link para o docmap"
 rm -f vendor/bin/docmap
-cp -f assets/bin/docmap vendor/bin/docmap
+cp -f docmap vendor/bin/docmap
 
 exit 0
