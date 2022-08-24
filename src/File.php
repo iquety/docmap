@@ -99,7 +99,7 @@ class File
         $fileName = $this->getFileInfo()->getFile();
         return $fileName === $summaryFileName;
     }
-    
+
     public function setTargetFile(string $filePath): void
     {
         $this->targetFile = $filePath;

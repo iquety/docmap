@@ -19,7 +19,7 @@ class LinkTest extends TestCase
         $parser = new Parser(new EnUs(), __DIR__ . '/docs-dist');
         $parser->addFile($link->getPath(), $targetLinkPath);
         $parser->addFile($ref->getPath(), $targetDocumentPath);
-        
+
         $parser->analyse();
 
         return new Link($parser, $link->getPath());

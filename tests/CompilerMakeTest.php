@@ -12,7 +12,7 @@ class CompilerMakeTest extends TestCase
 {
     private function compilerFactory(): Compiler
     {
-        $parser = $this->parserFactory(function($parser){
+        $parser = $this->parserFactory(function ($parser) {
             $parser->addFile(__DIR__ . '/docs-src/pt-br/indice.md', 'test/deep/indice.md');
         });
 

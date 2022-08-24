@@ -23,9 +23,9 @@ class Template
 
     public function parse(): string
     {
-        $rowList= $this->file->getContents();
+        $rowList = $this->file->getContents();
 
-        foreach($rowList as $number => $row) {
+        foreach ($rowList as $number => $row) {
             $parseRow = trim($row);
 
             if (strpos($parseRow, '--summary--') !== false) {
@@ -40,7 +40,7 @@ class Template
                 $rowList[$number] = $this->generatePageNavigation();
             }
         }
-        
+
         return implode("\n", $rowList) . "\n";
     }
 
@@ -86,7 +86,7 @@ class Template
         $table = array_fill(0, count($notation), '--');
 
         return implode(' | ', $notation)
-            . "\n" 
+            . "\n"
             . implode(' | ', $table);
     }
 
@@ -96,6 +96,10 @@ class Template
 
         $summaryItems = $this->compiler->getSummaryLinks();
 
+        if ($summaryItems === []) {
+            return '';
+        }
+
         $nextLink = array_shift($summaryItems);
 
         $notation = [];
@@ -103,32 +107,32 @@ class Template
         if ($this->getReadmePath() !== '') {
             $notation[] = "[◂ " . $this->getReadmeTitle() . "](" . $this->getReadmePath() . ")";
         }
-        
+
         $notation[] = "[" . $nextLink->getTitle() . " ▸](" . $nextLink->resolveTo($filePath) . ")";
 
         $table = array_fill(0, count($notation), '--');
 
         return implode(' | ', $notation)
-            . "\n" 
+            . "\n"
             . implode(' | ', $table);
     }
-    
+
     public function generateSummary(): string
     {
         $filePath = $this->getFilePath();
 
         $summaryItems = $this->compiler->getSummaryLinks();
-        
+
         $notation = [];
 
-        foreach($summaryItems as $link) {
+        foreach ($summaryItems as $link) {
             $path = $link->resolveTo($filePath);
             $notation[] = "- [" . $link->getTitle() . "](" . $path . ")";
         }
 
         return implode("\n", $notation);
     }
-    
+
     private function getLinkIndex(): Link
     {
         return $this->navigation['index'];

@@ -9,12 +9,13 @@ use Freep\Security\Path;
 class Link
 {
     public function __construct(private Parser $parser, private string $path)
-    {}
+    {
+    }
 
     private function extractBaseName(string $path): string
     {
-        if ($path === ''){
-            return '';    
+        if ($path === '') {
+            return '';
         }
 
         return (new Path($path))->getFile();
@@ -27,7 +28,7 @@ class Link
         }
 
         $reverse = strrev($path);
-        
+
         $removedLevels = (new Path($reverse))->getDirectory($levels);
 
         return strrev($removedLevels);
@@ -37,7 +38,7 @@ class Link
     {
         return $this->parser;
     }
-    
+
     public function getSourceLink(): string
     {
         return $this->path;

@@ -11,7 +11,8 @@ class Compiler
     private string $readmePath = '';
 
     public function __construct(private Parser $parser)
-    {}
+    {
+    }
 
     /** @return array<string,Link> */
     public function getPageNavigation(string $filePath): array

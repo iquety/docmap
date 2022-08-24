@@ -18,7 +18,7 @@ class TestCase extends ConsoleTestCase
         $instance->addFile(__DIR__ . '/docs-src/pt-br/outro.md', 'test/deep/other.md');
         if ($callback !== null) {
             $callback($instance);
-        } 
+        }
         $instance->analyse();
 
         return $instance;

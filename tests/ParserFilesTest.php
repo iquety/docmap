@@ -43,7 +43,7 @@ class ParserFilesTest extends TestCase
         $this->expectExceptionMessage(
             "The 'not-exists' file does not exist in the analyzed analysis list"
         );
-        
+
 
         $instance = $this->parserFactory();
 

@@ -17,7 +17,7 @@ class Parser
     private array $directoryList = [];
 
     private Lang $language;
-    
+
     /** @var array<string,string> */
     private array $fileList = [];
 
@@ -52,11 +52,11 @@ class Parser
     /** @return array<int,array<string,mixed>> */
     public function analyse(): void
     {
-        foreach($this->directoryList as $originPath => $targetPath) {
+        foreach ($this->directoryList as $originPath => $targetPath) {
             $this->analyseDirectory($originPath, $targetPath);
         }
 
-        foreach($this->fileList as $originPath => $targetFile) {
+        foreach ($this->fileList as $originPath => $targetFile) {
             $this->analyseFile($originPath, $targetFile);
         }
     }
@@ -65,7 +65,7 @@ class Parser
     {
         $fileList = (new Filesystem($originPath))->getDirectoryFiles('');
 
-        foreach($fileList as $path) {
+        foreach ($fileList as $path) {
             $targetFile = new Path($targetPath);
             $targetFile->addNodePath($path->getNodePath());
 
@@ -94,7 +94,7 @@ class Parser
         if ($file->isReadme($this->getLanguage()->translate('readme_file')) === true) {
             return;
         }
-        
+
         $this->summary[] = $filePath;
     }
 

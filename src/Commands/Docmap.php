@@ -65,7 +65,7 @@ class Docmap extends Command
     {
         $lang = new EnUs();
 
-        if($arguments->getOption('-l') === 'pt-br') {
+        if ($arguments->getOption('-l') === 'pt-br') {
             $lang = new PtBr();
         }
 
