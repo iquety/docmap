@@ -5,7 +5,7 @@
 
 use Freep\Console\Terminal;
 
-include __DIR__ . "/vendor/autoload.php";
+include __DIR__ . '/../autoload.php';
 
 // O PHP em modo CLI disponibiliza a variável reservada "$argv", contendo a lista 
 // de palavras digitadas pelo usuário no Terminal. Esta variável será usada para
@@ -14,11 +14,11 @@ include __DIR__ . "/vendor/autoload.php";
 // Remove o primeiro argumento, que contém o nome do script (ex: ./example)
 array_shift($argv);
 
-$terminal = new Terminal(__DIR__ . "/src");
+$terminal = new Terminal(__DIR__ . '/../../src');
 
-$terminal->loadCommandsFrom(__DIR__ . '/src/Commands');
+$terminal->loadCommandsFrom(__DIR__ . '/../../src/Commands');
 
-if (in_array($argv[0], ['--help', '-h']) === true) {
+if (count($argv) === 0 || in_array($argv[0], ['--help', '-h']) === true) {
     $terminal->runCommand('help', $argv);
     exit(0);
 }
