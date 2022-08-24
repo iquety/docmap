@@ -21,7 +21,7 @@ composer require ricardopedias/freep-docmap
 Após a instalação, o script se encontrará em `vendor/bin/docmap`, de onde poderá ser utilizado em qualquer projeto PHP, invocando-o como no exemplo a seguir:
 
 ```bash
-$ vendor/bin/docmap -s src-docs -d docs -r ../../readme.md -l pt-br
+vendor/bin/docmap -s src-docs -d docs -r ../../readme.md -l pt-br
 ```
 
 O comando acima significa:

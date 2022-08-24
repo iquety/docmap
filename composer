@@ -10,6 +10,10 @@ PHP_CONTAINER='freep-docmap'
 docker-compose up -d
 
 if [ "$1" == "analyse" ]; then
+    docker exec -it $PHP_CONTAINER ./bin-link
+
+    docker exec -it $PHP_CONTAINER composer docmap
+
     docker run \
         -e RUN_LOCAL=true \
         -e VALIDATE_MARKDOWN=true \

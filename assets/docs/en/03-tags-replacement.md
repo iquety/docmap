@@ -6,7 +6,7 @@
 
 Como já explicado, o Docmap é um interpretador de arquivos markdown, que procura tags especiais para substituí-las por um conteúdo correspondente.
 
-Dentro de um arquivo markdown, basta colocar uma ou várias tags para que a ferramenta possa identificar e substituir. 
+Dentro de um arquivo markdown, basta colocar uma ou várias tags para que a ferramenta possa identificar e substituir.
 
 As tags são palavras minúsculas, que começam e terminam com dois tracinhos "--". A seguir, a lista de tags disponíveis:
 
