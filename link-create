@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# ./link-create - Cria uma simulação de instalação pelo packagist
+#
+# Este programa cria uma simulação temporária de instalação do pacote via packagist
+#
+# ATENÇÃO: esse script é exclusivo para utilizar no diretório do projeto freep-docmap
+
+if [ -L "vendor/bin/docmap" ]; then
+    exit 0
+fi
+
+
+echo "Cria a simulação de pacote"
+
+# simula a instalacao do pacote
+mkdir -p vendor/ricardopedias/freep-docmap
+cp -Rf src vendor/ricardopedias/freep-docmap/
+cp -f docmap vendor/ricardopedias/freep-docmap/docmap
+
+# gera o link simbólico
+cd vendor/bin
+ln -s ../ricardopedias/freep-docmap/docmap .
+cd -
+
+exit 0

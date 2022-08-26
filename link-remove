@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# ./link-remove - Remove a simulação de instalação pelo packagist
+#
+# Este programa remove a simulação temporária de instalação do pacote via packagist
+#
+# ATENÇÃO: esse script é exclusivo para utilizar no diretório do projeto freep-docmap
+
+echo "Remove a simulação de pacote"
+
+rm -Rf vendor/ricardopedias/freep-docmap
+rm -f vendor/bin/docmap
+
+exit 0

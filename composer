@@ -10,9 +10,11 @@ PHP_CONTAINER='freep-docmap'
 docker-compose up -d
 
 if [ "$1" == "analyse" ]; then
-    docker exec -it $PHP_CONTAINER ./bin-link
+    docker exec -it $PHP_CONTAINER ./link-remove
+    docker exec -it $PHP_CONTAINER ./link-create
 
     docker exec -it $PHP_CONTAINER composer docmap
+    docker exec -it $PHP_CONTAINER ./link-remove
 
     docker run \
         -e RUN_LOCAL=true \
@@ -24,9 +26,11 @@ if [ "$1" == "analyse" ]; then
 fi
 
 if [ "$1" == "docmap" ]; then
-    docker exec -it $PHP_CONTAINER ./bin-link
+    docker exec -it $PHP_CONTAINER ./link-create
 
     docker exec -it $PHP_CONTAINER composer $@
+
+    docker exec -it $PHP_CONTAINER ./link-remove
 
     exit 0
 fi
@@ -36,10 +40,12 @@ if [ "$1" == "test:docmap" ]; then
 
     docker exec -it $PHP_CONTAINER mkdir tests/docs-dist
 
-    docker exec -it $PHP_CONTAINER ./bin-link
+    docker exec -it $PHP_CONTAINER ./link-create
 
     docker exec -it $PHP_CONTAINER \
         vendor/bin/docmap -s tests/docs-src/en -d tests/docs-dist/test
+
+    docker exec -it $PHP_CONTAINER ./link-remove
 
     exit 0
 fi

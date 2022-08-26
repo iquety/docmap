@@ -12,6 +12,10 @@
 
 O **Docmap** é uma ferramenta que gera um menu de navegação em documentações baseadas em markdown. É muito útil para facilitar a navegabilidade e adicionar mais profissionalismo às documentações de repositórios ou bibliotecas.
 
+```bash
+composer require ricardopedias/freep-docmap
+```
+
 Abaixo, um exemplo do menu que o Docmap desenha nos documentos:
 
 [◂ Mono mono](leiame.md) | [Back to index](leiame.md) | [Nom monon ▸](leiame.md)
