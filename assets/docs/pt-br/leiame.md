@@ -1,10 +1,5 @@
 # Iquety Docmap
 
-![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue)
-![License](https://img.shields.io/badge/license-MIT-blue)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/5a911e53f0cc421282d847d323f50203)](https://www.codacy.com/gh/ricardopedias/freep-console/dashboard?utm_source=github.com&utm_medium=referral&utm_content=ricardopedias/freep-console&utm_campaign=Badge_Coverage)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5a911e53f0cc421282d847d323f50203)](https://www.codacy.com/gh/ricardopedias/freep-console/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ricardopedias/freep-console&amp;utm_campaign=Badge_Grade)
-
 [English](../../readme.md) | [Português](leiame.md)
 -- | --
 
@@ -13,7 +8,7 @@
 O **Docmap** é uma ferramenta que gera um menu de navegação em documentações baseadas em markdown. É muito útil para facilitar a navegabilidade e adicionar mais profissionalismo às documentações de repositórios ou bibliotecas.
 
 ```bash
-composer require ricardopedias/freep-docmap
+composer require iquety/docmap
 ```
 
 Abaixo, um exemplo do menu que o Docmap desenha nos documentos:
