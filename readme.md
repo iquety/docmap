@@ -24,11 +24,8 @@ Below is an example of the menu that Docmap draws in documents:
 To use, just install and run in Terminal:
 
 ```bash
-// install the package
-$ composer require ricardopedias/freep-docmap
-
 // interpret 'src-docs' directory and save to 'docs'
-$ vendor/bin/docmap -s src-docs -d docs
+vendor/bin/docmap -s src-docs -d docs
 ```
 
 For detailed information, see [Documentation Summary](docs/en/index.md).
