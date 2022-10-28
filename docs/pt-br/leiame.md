@@ -19,11 +19,8 @@ Abaixo, um exemplo do menu que o Docmap desenha nos documentos:
 Para usar, basta instalar e executar no Terminal:
 
 ```bash
-// instala o pacote
-$ composer require ricardopedias/freep-docmap
-
 // interpreta o diretório 'src-docs' e salva em 'docs'
-$ vendor/bin/docmap -s src-docs -d docs
+vendor/bin/docmap -s src-docs -d docs
 ```
 
 Para informações detalhadas, consulte o [Sumário da Documentação](indice.md).
