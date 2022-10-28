@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap\Commands;
+namespace Iquety\Docmap\Commands;
 
-use Freep\Console\Arguments;
-use Freep\Console\Command;
-use Freep\Console\Option;
-use Freep\Docmap\Generator;
-use Freep\Docmap\i18n\EnUs;
-use Freep\Docmap\i18n\PtBr;
-use Freep\Security\Path;
+use Iquety\Console\Arguments;
+use Iquety\Console\Command;
+use Iquety\Console\Option;
+use Iquety\Docmap\Generator;
+use Iquety\Docmap\i18n\EnUs;
+use Iquety\Docmap\i18n\PtBr;
+use Iquety\Security\Path;
 
 class Docmap extends Command
 {

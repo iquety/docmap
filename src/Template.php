@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap;
+namespace Iquety\Docmap;
 
 class Template
 {

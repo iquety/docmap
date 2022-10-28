@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests;
 
 use Closure;
-use Freep\Console\PhpUnit\ConsoleTestCase;
-use Freep\Docmap\i18n\EnUs;
-use Freep\Docmap\Parser;
+use Iquety\Console\PhpUnit\ConsoleTestCase;
+use Iquety\Docmap\i18n\EnUs;
+use Iquety\Docmap\Parser;
 
 class TestCase extends ConsoleTestCase
 {

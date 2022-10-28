@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\Docmap\Compiler;
-use Freep\Docmap\Generator;
-use Freep\Docmap\i18n\EnUs;
-use Freep\Docmap\Parser;
+use Iquety\Docmap\Compiler;
+use Iquety\Docmap\Generator;
+use Iquety\Docmap\i18n\EnUs;
+use Iquety\Docmap\Parser;
 
 class GeneratorTest extends TestCase
 {

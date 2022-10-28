@@ -3,7 +3,7 @@
 
 // Carrega o autoloader do Composer
 
-use Freep\Console\Terminal;
+use Iquety\Console\Terminal;
 
 if ($argv[0] === './docmap') {
     echo "\033[31m";

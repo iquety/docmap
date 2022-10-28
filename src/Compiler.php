@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap;
+namespace Iquety\Docmap;
 
-use Freep\Security\Filesystem;
+use Iquety\Security\Filesystem;
 
 class Compiler
 {

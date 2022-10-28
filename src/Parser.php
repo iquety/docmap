@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap;
+namespace Iquety\Docmap;
 
-use Freep\Docmap\i18n\Lang;
-use Freep\Security\Filesystem;
-use Freep\Security\Path;
+use Iquety\Docmap\i18n\Lang;
+use Iquety\Security\Filesystem;
+use Iquety\Security\Path;
 use OutOfRangeException;
 
 class Parser

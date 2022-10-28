@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\Docmap\i18n\PtBr;
+use Iquety\Docmap\i18n\PtBr;
 
 class LanguageTest extends TestCase
 {

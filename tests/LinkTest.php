@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Freep\Docmap\i18n\EnUs;
-use Freep\Docmap\Link;
-use Freep\Docmap\Parser;
-use Freep\Security\Path;
+use Iquety\Docmap\i18n\EnUs;
+use Iquety\Docmap\Link;
+use Iquety\Docmap\Parser;
+use Iquety\Security\Path;
 
 class LinkTest extends TestCase
 {

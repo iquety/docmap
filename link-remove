@@ -8,7 +8,7 @@
 
 echo "Remove a simulação de pacote"
 
-rm -Rf vendor/ricardopedias/freep-docmap
+rm -Rf vendor/iquety/docmap
 rm -f vendor/bin/docmap
 
 exit 0

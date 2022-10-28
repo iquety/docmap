@@ -1,12 +1,12 @@
 {
-    "name": "ricardopedias/freep-docmap",
+    "name": "iquety/docmap",
     "type": "tool",
     "description": "Simple Markdown file interpreter, which adds a navigation menu on every page",
-    "keywords": ["framework", "freep", "tool", "console"],
+    "keywords": ["framework", "tool", "console"],
     "license": "MIT",
     "require": {
         "php": "^8.0.0",
-        "ricardopedias/freep-console": "dev-main"
+        "iquety/console": "dev-main"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Freep\\Docmap\\": "src/"
+            "Iquety\\Docmap\\": "src/"
         }
     },
     "autoload-dev": {

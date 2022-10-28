@@ -4,7 +4,7 @@
 #
 # Este programa cria uma simulação temporária de instalação do pacote via packagist
 #
-# ATENÇÃO: esse script é exclusivo para utilizar no diretório do projeto freep-docmap
+# ATENÇÃO: esse script é exclusivo para utilizar no diretório do projeto docmap
 
 if [ -L "vendor/bin/docmap" ]; then
     exit 0
@@ -14,13 +14,13 @@ fi
 echo "Cria a simulação de pacote"
 
 # simula a instalacao do pacote
-mkdir -p vendor/ricardopedias/freep-docmap
-cp -Rf src vendor/ricardopedias/freep-docmap/
-cp -f docmap vendor/ricardopedias/freep-docmap/docmap
+mkdir -p vendor/iquety/docmap
+cp -Rf src vendor/iquety/docmap/
+cp -f docmap vendor/iquety/docmap/docmap
 
 # gera o link simbólico
 cd vendor/bin
-ln -s ../ricardopedias/freep-docmap/docmap .
+ln -s ../iquety/docmap/docmap .
 cd -
 
 exit 0

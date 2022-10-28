@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap\i18n;
+namespace Iquety\Docmap\i18n;
 
 class EnUs extends AbstractLang
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap;
+namespace Iquety\Docmap;
 
-use Freep\Security\Filesystem;
-use Freep\Security\Path;
+use Iquety\Security\Filesystem;
+use Iquety\Security\Path;
 
 class File
 {

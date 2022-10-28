@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freep\Docmap\i18n;
+namespace Iquety\Docmap\i18n;
 
 abstract class AbstractLang implements Lang
 {
