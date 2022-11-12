@@ -9,7 +9,14 @@ Monomonomo nmon mono mono monomon mon nmon mono mono monomon mon nmon mono mono 
 ```php
 class SayHello extends Command
 {
-    // ...    
+    public function show(): string
+    {
+        if (true) {
+            return 'ok';
+        }
+
+        return 'oh no';
+    }
 }
 ```
 

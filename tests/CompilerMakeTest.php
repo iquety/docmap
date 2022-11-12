@@ -19,11 +19,6 @@ class CompilerMakeTest extends TestCase
         $instance = new Compiler($parser);
         $instance->setReadmePath('../../readme.md');
 
-        // $instance->setFiles($parser->getParsedFiles())
-        //     ->setReadmePath('../readme.md')
-        //     ->setSummaryFile($parser->getSummaryFile())
-        //     ->setSummaryItems($parser->getSummaryItems());
-
         return $instance;
     }
 
