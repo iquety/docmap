@@ -37,7 +37,7 @@ class GeneratorTest extends TestCase
 
         $this->assertDirectoryExists(__DIR__ . '/docs-dist');
         $this->assertFileExists(__DIR__ . '/docs-dist/01-page-one.md');
-        
+
         $originalContent = file_get_contents(__DIR__ . '/docs-src/en/01-page-one.md');
         $generatedContent = file_get_contents(__DIR__ . '/docs-dist/01-page-one.md');
 
@@ -52,8 +52,8 @@ class GeneratorTest extends TestCase
             . "        return 'oh no';\n"
             . "    }\n"
             . "}\n";
-        
-            $this->assertStringContainsString($phpCode, $originalContent);
-            $this->assertStringContainsString($phpCode, $generatedContent);
+
+            $this->assertStringContainsString($phpCode, (string)$originalContent);
+            $this->assertStringContainsString($phpCode, (string)$generatedContent);
     }
 }
