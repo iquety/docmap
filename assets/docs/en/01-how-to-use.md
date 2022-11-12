@@ -13,7 +13,7 @@ In the process, the structure of directories and the contents of the files are a
 Docmap is used via the command line. For this to be possible, it is necessary to install the composer package as shown in the example below:
 
 ```bash
-composer require ricardopedias/freep-docmap
+composer require iquety/docmap
 ```
 
 ## Execution

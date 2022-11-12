@@ -14,7 +14,7 @@ In the process, the structure of directories and the contents of the files are a
 Docmap is used via the command line. For this to be possible, it is necessary to install the composer package as shown in the example below:
 
 ```bash
-composer require ricardopedias/freep-docmap
+composer require iquety/docmap
 ```
 
 ## Execution
@@ -59,18 +59,18 @@ In the `composer.json` file, you can create a routine to remove the current docu
 // composer.json
 
 {
-"require": {
-"php": "^8.0.0",
-"ricardopedias/freep-docmap": "dev-main"
-},
-"scripts" : {
-"docmap" : [
-"rm -Rf docs/pt-br/*",
-"vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
-"rm -Rf docs/en/*",
-"vendor/bin/docmap -s assets/docs/en -d docs/en"
-]
-}
+    "require": {
+        "php": "^8.0.0",
+        "ricardopedias/freep-docmap": "dev-main"
+    },
+    "scripts" : {
+        "docmap" : [
+            "rm -Rf docs/pt-br/*",
+            "vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
+            "rm -Rf docs/en/*",
+            "vendor/bin/docmap -s assets/docs/en -d docs/en"
+        ]
+    }
 }
 ```
 

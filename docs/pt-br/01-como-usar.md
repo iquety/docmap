@@ -14,7 +14,7 @@ No processo, são analisadas a estrutura de diretórios e o conteúdo dos arquiv
 O Docmap é usado através da linha de comando. Para isso ser possível, é necessário instalar o pacote do composer conforme o exemplo abaixo:
 
 ```bash
-composer require ricardopedias/freep-docmap
+composer require iquety/docmap
 ```
 
 ## Execução
@@ -59,18 +59,18 @@ No arquivo `composer.json`, pode-se criar uma rotina para remover a documentaç�
 // composer.json
 
 {
-"require": {
-"php": "^8.0.0",
-"ricardopedias/freep-docmap": "dev-main"
-},
-"scripts" : {
-"docmap" : [
-"rm -Rf docs/pt-br/*",
-"vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
-"rm -Rf docs/en/*",
-"vendor/bin/docmap -s assets/docs/en -d docs/en"
-]
-}
+    "require": {
+        "php": "^8.0.0",
+        "ricardopedias/freep-docmap": "dev-main"
+    },
+    "scripts" : {
+        "docmap" : [
+            "rm -Rf docs/pt-br/*",
+            "vendor/bin/docmap -s assets/docs/pt-br -d docs/pt-br -r leiame.md -l pt-br",
+            "rm -Rf docs/en/*",
+            "vendor/bin/docmap -s assets/docs/en -d docs/en"
+        ]
+    }
 }
 ```
 

@@ -13,7 +13,7 @@ No processo, são analisadas a estrutura de diretórios e o conteúdo dos arquiv
 O Docmap é usado através da linha de comando. Para isso ser possível, é necessário instalar o pacote do composer conforme o exemplo abaixo:
 
 ```bash
-composer require ricardopedias/freep-docmap
+composer require iquety/docmap
 ```
 
 ## Execução
