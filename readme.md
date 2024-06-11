@@ -1,6 +1,6 @@
 # Iquety Docmap
 
-![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue)
+![PHP Version](https://img.shields.io/badge/php-%5E8.3-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 [![Codacy Grade](https://app.codacy.com/project/badge/Grade/5b22d15dcc5c4be59083809a0cfb7619)](https://www.codacy.com/gh/iquety/docmap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iquety/docmap&amp;utm_campaign=Badge_Grade)
 [![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/5b22d15dcc5c4be59083809a0cfb7619)](https://www.codacy.com/gh/iquety/docmap/dashboard?utm_source=github.com&utm_medium=referral&utm_content=iquety/docmap&utm_campaign=Badge_Coverage)
@@ -32,7 +32,7 @@ For detailed information, see [Documentation Summary](docs/en/index.md).
 
 ## Characteristics
 
-- Made for PHP 8.0 or higher;
+- Made for PHP 8.3 or higher;
 - Codified with best practices and maximum quality;
 - Well documented and IDE friendly;
 - Made with TDD (Test Driven Development);

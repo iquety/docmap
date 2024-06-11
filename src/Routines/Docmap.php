@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Iquety\Docmap\Commands;
+namespace Iquety\Docmap\Routines;
 
 use Iquety\Console\Arguments;
 use Iquety\Console\Command;
 use Iquety\Console\Option;
+use Iquety\Console\Routine;
 use Iquety\Docmap\Generator;
 use Iquety\Docmap\i18n\EnUs;
 use Iquety\Docmap\i18n\PtBr;
 use Iquety\Security\Path;
 
-class Docmap extends Command
+class Docmap extends Routine
 {
     protected function initialize(): void
     {

@@ -28,17 +28,17 @@ array_shift($argv);
 
 $terminal = new Terminal(__DIR__ . '/src');
 
-$terminal->loadCommandsFrom(__DIR__ . '/src/Commands');
+$terminal->loadRoutinesFrom(__DIR__ . '/src/Routines');
 
 if (count($argv) === 0 || in_array($argv[0], ['--help', '-h']) === true) {
-    $terminal->runCommand('help', $argv);
+    $terminal->runRoutine('help', $argv);
 
     exit(0);
 }
 
 try {
     // Usa a variável $argv para interpretar os argumentos do usuário
-    $terminal->runCommand('docmap', $argv);
+    $terminal->runRoutine('docmap', $argv);
 } catch (Throwable $e) {
     // $terminal->factoryMessage($e->getFile() . " on line " . $e->getLine())->error();
     $terminal->factoryMessage($e->getMessage())->redLn();
