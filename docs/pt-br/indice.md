@@ -16,4 +16,4 @@ Bem vindo(a) à documentação da ferramenta Iquety Docmap. Aqui você encontra 
 - [Criando o sumário](05-tag-summary.md)
 - [Criando a navegação do sumário](06-tag-summary-nav.md)
 - [Criando traduções](07-criando-traducoes.md)
-- [Evoluindo o Docmap](08-evoluindo-o-docmap.md)
+- [Evoluindo a biblioteca](08-evoluindo-a-biblioteca.md)

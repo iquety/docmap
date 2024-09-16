@@ -11,10 +11,29 @@ In the process, the structure of directories and the contents of the files are a
 
 ## Installation
 
+### Default
+
 Docmap is used via the command line. For this to be possible, it is necessary to install the composer package as shown in the example below:
 
 ```bash
 composer require iquety/docmap
+```
+
+### Cross-reference
+
+The `iquety/docmap` package has a cross-reference with `iquety/console`. Therefore, if you need to use both packages in the same project, you must let `composer` manage them automatically, leaving the configuration as follows:
+
+```json
+"require": {
+    ...
+    "iquety/console": "*",
+    ...
+},
+"require-dev": {
+    ...
+    "iquety/docmap": "*",
+    ...
+},
 ```
 
 ## Execution

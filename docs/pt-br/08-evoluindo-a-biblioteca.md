@@ -1,6 +1,7 @@
 # Evoluindo a biblioteca
 
---page-nav--
+[◂ Criando traduções](07-criando-traducoes.md) | [Índice da documentação ▸](indice.md)
+-- | --
 
 ## 1. Infraestrutura
 
@@ -65,4 +66,5 @@ Para executar os testes de unidade, use:
 ./composer test
 ```
 
---page-nav--
+[◂ Criando traduções](07-criando-traducoes.md) | [Índice da documentação ▸](indice.md)
+-- | --

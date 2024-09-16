@@ -11,10 +11,30 @@ No processo, são analisadas a estrutura de diretórios e o conteúdo dos arquiv
 
 ## Intalação
 
+### Modo padrão
+
 O Docmap é usado através da linha de comando. Para isso ser possível, é necessário instalar o pacote do composer conforme o exemplo abaixo:
 
 ```bash
 composer require iquety/docmap
+```
+
+### Referência cruzada
+
+O pacote `iquety/docmap` possui uma referência cruzada com `iquety/console`. Por isso, se for necessário usar ambos os pacotes no mesmo projeto, é preciso deixar o `composer` gerenciá-los automaticamente,
+deixando a configuracã́o da seguinte forma:
+
+```json
+"require": {
+    ...
+    "iquety/console": "*",
+    ...
+},
+"require-dev": {
+    ...
+    "iquety/docmap": "*",
+    ...
+},
 ```
 
 ## Execução
