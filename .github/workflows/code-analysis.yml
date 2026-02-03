@@ -8,13 +8,18 @@ jobs:
   phpcs:
     name: PHPCodeSniffer
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.3', '8.4']
+        coverage: [false]
+        composer-flags: ['']
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ matrix.php }}
           extensions: curl, mbstring
           coverage: none
           tools: composer:v2, cs2pr
@@ -28,9 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['8.3']
+        php: ['8.3', '8.4']
         coverage: [false]
         composer-flags: ['']
+
     steps:
       - uses: actions/checkout@v2
 
@@ -50,13 +56,18 @@ jobs:
   phpstan:
     name: PHPStan
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.3', '8.4']
+        coverage: [false]
+        composer-flags: ['']
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ matrix.php }}
           extensions: curl, mbstring
           coverage: none
           tools: composer:v2
@@ -70,13 +81,18 @@ jobs:
   phpmd:
     name: PHPMessDetector
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.3', '8.4']
+        coverage: [false]
+        composer-flags: ['']
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: ${{ matrix.php }}
           extensions: curl, mbstring
           coverage: none
           tools: composer:v2

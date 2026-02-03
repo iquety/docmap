@@ -1,5 +1,11 @@
 # Iquety Docmap
 
+[![GitHub Release](https://img.shields.io/github/release/iquety/docmap.svg)](https://github.com/iquety/docmap/releases/latest)
+![PHP Version](https://img.shields.io/badge/php-%5E8.3-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+[![Codacy Grade](https://app.codacy.com/project/badge/Grade/5b22d15dcc5c4be59083809a0cfb7619)](https://www.codacy.com/gh/iquety/docmap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iquety/docmap&amp;utm_campaign=Badge_Grade)
+[![Codacy Coverage](https://app.codacy.com/project/badge/Coverage/5b22d15dcc5c4be59083809a0cfb7619)](https://www.codacy.com/gh/iquety/docmap/dashboard?utm_source=github.com&utm_medium=referral&utm_content=iquety/docmap&utm_campaign=Badge_Coverage)
+
 [English](../../readme.md) | [Português](leiame.md)
 -- | --
 
@@ -27,7 +33,6 @@ Para informações detalhadas, consulte o [Sumário da Documentação](indice.md
 
 ## Características
 
-- Feito para o PHP 8.0 ou superior;
 - Codificado com boas práticas e máxima qualidade;
 - Bem documentado e amigável para IDEs;
 - Feito com TDD (Test Driven Development);
