@@ -23,7 +23,7 @@ São as seguintes ferramentas:
 
 - [PHP Unit](https://phpunit.de)
 - [PHP Stan](https://phpstan.org)
-- [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+- [PHP CS Fixer](https://cs.symfony.com/doc/usage.html)
 - [PHP MD](https://phpmd.org)
 - [Super Linter](https://github.com/super-linter/super-linter)
 
@@ -54,8 +54,11 @@ Caso seja necessário, é possível executá-las de forma individual:
 ```
 
 ```bash
-# Execute o Code Sniffer
-./composer psr
+# Executa a checagem de padrões
+./composer psr-check
+
+# Corrige os padrões possíveis
+./composer psr-fix
 ```
 
 ### 2.3. Testes automatizados
@@ -64,6 +67,20 @@ Para executar os testes de unidade, use:
 
 ```bash
 ./composer test
+```
+
+## 3. Documentação
+
+Uma boa navegação é indispensável para que a documentação seja fácil de usar.
+Pensando nisso, foi utilizada a ferramenta [Iquety Docmap](https://github.com/iquety/docmap),
+para gerar um agradável menu de navegação em todas as páginas da documentação.
+
+Os documentos editáveis se encontram no diretório `docs-src`. Após acrescentar
+ou editar quaisquer documentos contidos ali, basta executar o comando abaixo para
+gerar a documentação navegável no diretório `docs`:
+
+```bash
+composer docmap
 ```
 
 [◂ Criando traduções](07-criando-traducoes.md) | [Índice da documentação ▸](indice.md)
