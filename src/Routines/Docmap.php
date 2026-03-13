@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Iquety\Docmap\Routines;
 
 use Iquety\Console\Arguments;
-use Iquety\Console\Command;
 use Iquety\Console\Option;
 use Iquety\Console\Routine;
 use Iquety\Docmap\Generator;
@@ -17,9 +16,9 @@ class Docmap extends Routine
 {
     protected function initialize(): void
     {
-        $this->setName("docmap");
-        $this->setDescription("Generate a navbar documentation");
-        $this->setHowToUse("vendor/bin/docmap [options]");
+        $this->setName('docmap');
+        $this->setDescription('Generate a navbar documentation');
+        $this->setHowToUse('vendor/bin/docmap [options]');
 
         $this->addOption(
             new Option(

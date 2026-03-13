@@ -6,9 +6,7 @@ namespace Iquety\Docmap;
 
 use Iquety\Docmap\i18n\EnUs;
 use Iquety\Docmap\i18n\Lang;
-use Iquety\Security\Filesystem;
 use Iquety\Security\Path;
-use OutOfRangeException;
 
 class Generator
 {
@@ -18,7 +16,7 @@ class Generator
 
     public function __construct(?Lang $language = null)
     {
-        $language = $language ?? new EnUs();
+        $language ??= new EnUs();
 
         $this->parser = new Parser($language);
     }

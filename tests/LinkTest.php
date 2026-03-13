@@ -11,20 +11,6 @@ use Iquety\Security\Path;
 
 class LinkTest extends TestCase
 {
-    private function linkFactory(string $targetLinkPath, string $targetDocumentPath): Link
-    {
-        $link = new Path(__DIR__ . "/docs-src/en/01-page-one.md");
-        $ref = new Path(__DIR__ . "/docs-src/en/02-page-two.md");
-
-        $parser = new Parser(new EnUs());
-        $parser->addFile($link->getPath(), $targetLinkPath);
-        $parser->addFile($ref->getPath(), $targetDocumentPath);
-
-        $parser->analyse();
-
-        return new Link($parser, $link->getPath());
-    }
-
     /** @test */
     public function getInfo(): void
     {
@@ -33,9 +19,9 @@ class LinkTest extends TestCase
             'test/02-page-two.md'  // document
         );
 
-        $this->assertEquals("First title", $link->getTitle());
-        $this->assertEquals(__DIR__ . "/docs-src/en/01-page-one.md", $link->getSourceLink());
-        $this->assertEquals("test/01-page-one.md", $link->getTargetLink());
+        $this->assertEquals('First title', $link->getTitle());
+        $this->assertEquals(__DIR__ . '/docs-src/en/01-page-one.md', $link->getSourceLink());
+        $this->assertEquals('test/01-page-one.md', $link->getTargetLink());
     }
 
     /** @test */
@@ -44,8 +30,8 @@ class LinkTest extends TestCase
         $link = new Link($this->parserFactory(), '');
 
         $this->assertEquals(
-            "",
-            $link->resolveTo(__DIR__ . "/docs-src/en/02-page-two.md")
+            '',
+            $link->resolveTo(__DIR__ . '/docs-src/en/02-page-two.md')
         );
     }
 
@@ -57,37 +43,37 @@ class LinkTest extends TestCase
         $list['link same dir with document'] = [
             'test/01-page-one.md', // link
             'test/02-page-two.md', // document
-            "01-page-one.md",      // resolved
+            '01-page-one.md',      // resolved
         ];
 
         $list['link same dir with document in two levels'] = [
             'test/subdir/01-page-one.md', // link
             'test/subdir/02-page-two.md', // document
-            "01-page-one.md",             // resolved
+            '01-page-one.md',             // resolved
         ];
 
         $list['link in upper dir with document'] = [
             '01-page-one.md',      // link
             'test/02-page-two.md', // document
-            "../01-page-one.md",   // resolved
+            '../01-page-one.md',   // resolved
         ];
 
         $list['link in upper dir with document in two levels'] = [
             'test/01-page-one.md',        // link
             'test/subdir/02-page-two.md', // document
-            "../01-page-one.md",          // resolved
+            '../01-page-one.md',          // resolved
         ];
 
         $list['link in subdir with document'] = [
             'test/subdir/01-page-one.md', // link
             'test/02-page-two.md',        // document
-            "subdir/01-page-one.md",      // resolved
+            'subdir/01-page-one.md',      // resolved
         ];
 
         $list['link in subdir with document in two levels'] = [
             'test/subdir/deepdir/01-page-one.md', // link
             'test/subdir/02-page-two.md',         // document
-            "deepdir/01-page-one.md",             // resolved
+            'deepdir/01-page-one.md',             // resolved
         ];
 
         return $list;
@@ -103,7 +89,20 @@ class LinkTest extends TestCase
 
         $this->assertEquals(
             $resolved,
-            $link->resolveTo(__DIR__ . "/docs-src/en/02-page-two.md")
+            $link->resolveTo(__DIR__ . '/docs-src/en/02-page-two.md')
         );
+    }
+    private function linkFactory(string $targetLinkPath, string $targetDocumentPath): Link
+    {
+        $link = new Path(__DIR__ . '/docs-src/en/01-page-one.md');
+        $ref = new Path(__DIR__ . '/docs-src/en/02-page-two.md');
+
+        $parser = new Parser(new EnUs());
+        $parser->addFile($link->getPath(), $targetLinkPath);
+        $parser->addFile($ref->getPath(), $targetDocumentPath);
+
+        $parser->analyse();
+
+        return new Link($parser, $link->getPath());
     }
 }

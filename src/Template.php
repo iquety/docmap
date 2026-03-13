@@ -16,11 +16,6 @@ class Template
         $this->navigation = $this->compiler->getPageNavigation($filePath);
     }
 
-    private function getFilePath(): string
-    {
-        return $this->file->getFileInfo()->getPath();
-    }
-
     public function parse(): string
     {
         $rowList = $this->file->getContents();
@@ -28,15 +23,15 @@ class Template
         foreach ($rowList as $number => $row) {
             $parseRow = trim($row);
 
-            if (strpos($parseRow, '--summary--') !== false) {
+            if (str_contains($parseRow, '--summary--')) {
                 $rowList[$number] = $this->generateSummary();
             }
 
-            if (strpos($parseRow, '--summary-nav--') !== false) {
+            if (str_contains($parseRow, '--summary-nav--')) {
                 $rowList[$number] = $this->generateSummaryPageNavigation();
             }
 
-            if (strpos($parseRow, '--page-nav--') !== false) {
+            if (str_contains($parseRow, '--page-nav--')) {
                 $rowList[$number] = $this->generatePageNavigation();
             }
         }
@@ -63,24 +58,24 @@ class Template
         $nextLink     = $next->resolveTo($filePath);
 
         if ($previousLink !== '') {
-            $notation[] = "[◂ " . $previousTitle . "](" . $previousLink . ")";
+            $notation[] = '[◂ ' . $previousTitle . '](' . $previousLink . ')';
         }
 
-        $indexPrefix = "";
-        $indexSufix = "";
+        $indexPrefix = '';
+        $indexSufix = '';
 
         if ($previousLink === '') {
-            $indexPrefix = "◂ ";
+            $indexPrefix = '◂ ';
         }
 
         if ($nextLink === '') {
-            $indexSufix = " ▸";
+            $indexSufix = ' ▸';
         }
 
-        $notation[] = "[" . $indexPrefix . $indexTitle . $indexSufix . "](" . $indexLink . ")";
+        $notation[] = '[' . $indexPrefix . $indexTitle . $indexSufix . '](' . $indexLink . ')';
 
         if ($nextLink !== '') {
-            $notation[] = "[" . $nextTitle . " ▸](" . $nextLink . ")";
+            $notation[] = '[' . $nextTitle . ' ▸](' . $nextLink . ')';
         }
 
         $table = array_fill(0, count($notation), '--');
@@ -105,10 +100,10 @@ class Template
         $notation = [];
 
         if ($this->getReadmePath() !== '') {
-            $notation[] = "[◂ " . $this->getReadmeTitle() . "](" . $this->getReadmePath() . ")";
+            $notation[] = '[◂ ' . $this->getReadmeTitle() . '](' . $this->getReadmePath() . ')';
         }
 
-        $notation[] = "[" . $nextLink->getTitle() . " ▸](" . $nextLink->resolveTo($filePath) . ")";
+        $notation[] = '[' . $nextLink->getTitle() . ' ▸](' . $nextLink->resolveTo($filePath) . ')';
 
         $table = array_fill(0, count($notation), '--');
 
@@ -127,10 +122,25 @@ class Template
 
         foreach ($summaryItems as $link) {
             $path = $link->resolveTo($filePath);
-            $notation[] = "- [" . $link->getTitle() . "](" . $path . ")";
+            $notation[] = '- [' . $link->getTitle() . '](' . $path . ')';
         }
 
         return implode("\n", $notation);
+    }
+
+    public function getReadmePath(): string
+    {
+        return $this->compiler->getReadmePath();
+    }
+
+    public function getReadmeTitle(): string
+    {
+        return $this->compiler->getParser()->getLanguage()->translate('back_to_readme');
+    }
+
+    private function getFilePath(): string
+    {
+        return $this->file->getFileInfo()->getPath();
     }
 
     private function getLinkIndex(): Link
@@ -146,15 +156,5 @@ class Template
     private function getLinkPrevious(): Link
     {
         return $this->navigation['previous'];
-    }
-
-    public function getReadmePath(): string
-    {
-        return $this->compiler->getReadmePath();
-    }
-
-    public function getReadmeTitle(): string
-    {
-        return $this->compiler->getParser()->getLanguage()->translate('back_to_readme');
     }
 }

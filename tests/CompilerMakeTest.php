@@ -5,23 +5,9 @@ declare(strict_types=1);
 namespace Tests;
 
 use Iquety\Docmap\Compiler;
-use Iquety\Docmap\i18n\EnUs;
-use Iquety\Docmap\Parser;
 
 class CompilerMakeTest extends TestCase
 {
-    private function compilerFactory(): Compiler
-    {
-        $parser = $this->parserFactory(function ($parser) {
-            $parser->addFile(__DIR__ . '/docs-src/pt-br/indice.md', 'test/deep/indice.md');
-        });
-
-        $instance = new Compiler($parser);
-        $instance->setReadmePath('../../readme.md');
-
-        return $instance;
-    }
-
     /**
      * @test
      */
@@ -37,5 +23,16 @@ class CompilerMakeTest extends TestCase
         $this->assertFileExists(__DIR__ . '/docs-dist/test/03-page-three.md');
         $this->assertFileExists(__DIR__ . '/docs-dist/test/index.md');
         $this->assertFileExists(__DIR__ . '/docs-dist/test/readme.md');
+    }
+    private function compilerFactory(): Compiler
+    {
+        $parser = $this->parserFactory(function ($parser): void {
+            $parser->addFile(__DIR__ . '/docs-src/pt-br/indice.md', 'test/deep/indice.md');
+        });
+
+        $instance = new Compiler($parser);
+        $instance->setReadmePath('../../readme.md');
+
+        return $instance;
     }
 }

@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use Iquety\Docmap\Compiler;
 use Iquety\Docmap\Generator;
-use Iquety\Docmap\i18n\EnUs;
-use Iquety\Docmap\Parser;
 
 class GeneratorTest extends TestCase
 {
@@ -53,7 +50,7 @@ class GeneratorTest extends TestCase
             . "    }\n"
             . "}\n";
 
-            $this->assertStringContainsString($phpCode, (string)$originalContent);
-            $this->assertStringContainsString($phpCode, (string)$generatedContent);
+        $this->assertStringContainsString($phpCode, (string) $originalContent);
+        $this->assertStringContainsString($phpCode, (string) $generatedContent);
     }
 }

@@ -41,28 +41,6 @@ class File
         }
     }
 
-    private function checkSummary(string $row): void
-    {
-        $row = trim($row);
-
-        if (strpos($row, '--summary--') !== false) {
-            $this->hasSummary = true;
-        }
-    }
-
-    private function extractTitle(string $row): void
-    {
-        $row = trim($row);
-
-        if ($this->title !== '') {
-            return;
-        }
-
-        if (str_starts_with($row, '# ') === true) {
-            $this->title = ltrim($row, '# ');
-        }
-    }
-
     /** @return array<int,string> */
     public function getContents(): array
     {
@@ -103,5 +81,27 @@ class File
     public function setTargetFile(string $filePath): void
     {
         $this->targetFile = $filePath;
+    }
+
+    private function checkSummary(string $row): void
+    {
+        $row = trim($row);
+
+        if (str_contains($row, '--summary--')) {
+            $this->hasSummary = true;
+        }
+    }
+
+    private function extractTitle(string $row): void
+    {
+        $row = trim($row);
+
+        if ($this->title !== '') {
+            return;
+        }
+
+        if (str_starts_with($row, '# ') === true) {
+            $this->title = ltrim($row, '# ');
+        }
     }
 }

@@ -13,10 +13,10 @@ class ParserEnUsTest extends TestCase
 
         // nao tem o arquivo index.md, identificado como sumário
         $this->assertEquals([
-            __DIR__ . "/docs-src/en/01-page-one.md",
-            __DIR__ . "/docs-src/en/02-page-two.md",
-            __DIR__ . "/docs-src/en/03-page-three.md",
-            __DIR__ . "/docs-src/pt-br/outro.md",
+            __DIR__ . '/docs-src/en/01-page-one.md',
+            __DIR__ . '/docs-src/en/02-page-two.md',
+            __DIR__ . '/docs-src/en/03-page-three.md',
+            __DIR__ . '/docs-src/pt-br/outro.md',
         ], $instance->getSummaryItems());
     }
 
@@ -26,7 +26,7 @@ class ParserEnUsTest extends TestCase
         $instance = $this->parserFactory();
 
         $this->assertEquals(
-            __DIR__ . "/docs-src/en/index.md",
+            __DIR__ . '/docs-src/en/index.md',
             $instance->getSummaryFile()
         );
     }

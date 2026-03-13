@@ -8,36 +8,7 @@ use Iquety\Security\Path;
 
 class Link
 {
-    public function __construct(private Parser $parser, private string $path)
-    {
-    }
-
-    private function extractBaseName(string $path): string
-    {
-        if ($path === '') {
-            return '';
-        }
-
-        return (new Path($path))->getFile();
-    }
-
-    private function extractTopDirectory(string $path, int $levels): string
-    {
-        if ($levels < 1) {
-            return $path;
-        }
-
-        $reverse = strrev($path);
-
-        $removedLevels = (new Path($reverse))->getDirectory($levels);
-
-        return strrev($removedLevels);
-    }
-
-    private function getParser(): Parser
-    {
-        return $this->parser;
-    }
+    public function __construct(private Parser $parser, private string $path) {}
 
     public function getSourceLink(): string
     {
@@ -56,11 +27,6 @@ class Link
         return $this->getParser()
             ->getFile($this->getSourceLink())
             ->getTitle();
-    }
-
-    private function toTargetFrom(string $sourcePath): string
-    {
-        return $this->parser->getFile($sourcePath)->getTargetFile();
     }
 
     public function resolveTo(string $documentWithLinks): string
@@ -100,6 +66,38 @@ class Link
         $topDirs = $linkLevels - substr_count($documentPath, '/');
 
         return $this->extractTopDirectory($linkPath, $topDirs);
+    }
+
+    private function extractBaseName(string $path): string
+    {
+        if ($path === '') {
+            return '';
+        }
+
+        return (new Path($path))->getFile();
+    }
+
+    private function extractTopDirectory(string $path, int $levels): string
+    {
+        if ($levels < 1) {
+            return $path;
+        }
+
+        $reverse = strrev($path);
+
+        $removedLevels = (new Path($reverse))->getDirectory($levels);
+
+        return strrev($removedLevels);
+    }
+
+    private function getParser(): Parser
+    {
+        return $this->parser;
+    }
+
+    private function toTargetFrom(string $sourcePath): string
+    {
+        return $this->parser->getFile($sourcePath)->getTargetFile();
     }
 
     private function prependUpperDirectory(string $path, int $levels): string

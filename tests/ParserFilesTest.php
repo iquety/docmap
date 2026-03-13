@@ -16,12 +16,12 @@ class ParserFilesTest extends TestCase
 
         $this->assertCount(6, $instance->getParsedFiles());
         $this->assertEquals([
-            __DIR__ . "/docs-src/en/01-page-one.md",
-            __DIR__ . "/docs-src/en/02-page-two.md",
-            __DIR__ . "/docs-src/en/03-page-three.md",
-            __DIR__ . "/docs-src/en/index.md",
-            __DIR__ . "/docs-src/en/readme.md",
-            __DIR__ . "/docs-src/pt-br/outro.md",
+            __DIR__ . '/docs-src/en/01-page-one.md',
+            __DIR__ . '/docs-src/en/02-page-two.md',
+            __DIR__ . '/docs-src/en/03-page-three.md',
+            __DIR__ . '/docs-src/en/index.md',
+            __DIR__ . '/docs-src/en/readme.md',
+            __DIR__ . '/docs-src/pt-br/outro.md',
         ], array_keys($instance->getParsedFiles()));
     }
 
@@ -32,7 +32,7 @@ class ParserFilesTest extends TestCase
 
         $this->assertInstanceOf(
             File::class,
-            $instance->getFile(__DIR__ . "/docs-src/en/01-page-one.md")
+            $instance->getFile(__DIR__ . '/docs-src/en/01-page-one.md')
         );
     }
 
@@ -47,6 +47,6 @@ class ParserFilesTest extends TestCase
 
         $instance = $this->parserFactory();
 
-        $instance->getFile("not-exists");
+        $instance->getFile('not-exists');
     }
 }

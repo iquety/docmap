@@ -57,6 +57,41 @@ class Parser
         }
     }
 
+    public function getFile(string $sourcePath): File
+    {
+        if ($sourcePath === '') {
+            return new File('');
+        }
+
+        if (isset($this->parsedList[$sourcePath]) === false) {
+            throw new OutOfRangeException("The '$sourcePath' file does not exist in the analyzed analysis list");
+        }
+
+        return $this->parsedList[$sourcePath];
+    }
+
+    public function getLanguage(): Lang
+    {
+        return $this->language;
+    }
+
+    /** @return array<string,File> */
+    public function getParsedFiles(): array
+    {
+        return $this->parsedList;
+    }
+
+    /** @return array<int,string> */
+    public function getSummaryItems(): array
+    {
+        return $this->summary;
+    }
+
+    public function getSummaryFile(): string
+    {
+        return $this->summaryFile;
+    }
+
     private function analyseDirectory(string $originPath, string $targetPath): void
     {
         $fileList = (new Filesystem($originPath))->getDirectoryFiles('');
@@ -92,40 +127,5 @@ class Parser
         }
 
         $this->summary[] = $filePath;
-    }
-
-    public function getFile(string $sourcePath): File
-    {
-        if ($sourcePath === '') {
-            return new File('');
-        }
-
-        if (isset($this->parsedList[$sourcePath]) === false) {
-            throw new OutOfRangeException("The '$sourcePath' file does not exist in the analyzed analysis list");
-        }
-
-        return $this->parsedList[$sourcePath];
-    }
-
-    public function getLanguage(): Lang
-    {
-        return $this->language;
-    }
-
-    /** @return array<string,File> */
-    public function getParsedFiles(): array
-    {
-        return $this->parsedList;
-    }
-
-    /** @return array<int,string> */
-    public function getSummaryItems(): array
-    {
-        return $this->summary;
-    }
-
-    public function getSummaryFile(): string
-    {
-        return $this->summaryFile;
     }
 }

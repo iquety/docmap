@@ -10,9 +10,7 @@ class Compiler
 {
     private string $readmePath = '';
 
-    public function __construct(private Parser $parser)
-    {
-    }
+    public function __construct(private Parser $parser) {}
 
     /** @return array<string,Link> */
     public function getPageNavigation(string $filePath): array
@@ -60,11 +58,6 @@ class Compiler
         );
     }
 
-    private function linkFactory(string $linkPath): Link
-    {
-        return new Link($this->getParser(), $linkPath);
-    }
-
     public function makeTo(string $destinationPath): void
     {
         $filesystem = new Filesystem($destinationPath);
@@ -84,5 +77,10 @@ class Compiler
         $this->readmePath = $relativePath;
 
         return $this;
+    }
+
+    private function linkFactory(string $linkPath): Link
+    {
+        return new Link($this->getParser(), $linkPath);
     }
 }
